@@ -4,5 +4,5 @@
 
 * Vanessa Eberhard
 * Sarah Elmasry
-* Bolatbek Minbayv
+* Bolatbek Minbayev
 * Joan Farres
