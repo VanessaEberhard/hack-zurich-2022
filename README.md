@@ -15,6 +15,13 @@
 ### Evaluation:
 * After the training process, we tested the model to have an error -/+ 100 ppm. it means when we want to predict CO2 using other sensors reading, the error of the predicted CO2 will be between -/+ 100 ppm.
 
+## Reading Sensor Data
+It is possible to add additional sensor data in real time. Sensors can
+connect to an MQTT Broker, and a python script that acts like a MQTT Client
+subscribes to the sensor topics to recieve data and format it. This data can
+then be sent to the database. This sensor data is stored in intervals of 10
+minutes.
+
 ## Members
 
 * Vanessa Eberhard
