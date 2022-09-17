@@ -20,7 +20,8 @@ It is possible to add additional sensor data in real time. Sensors can
 connect to an MQTT Broker, and a python script that acts like a MQTT Client
 subscribes to the sensor topics to recieve data and format it. This data can
 then be sent to the database. This sensor data is stored in intervals of 10
-minutes.
+minutes. Due to lack of sensors and the large amount of existing data this
+feature is not integrated in the main program, but rather separately.
 
 ## Members
 
