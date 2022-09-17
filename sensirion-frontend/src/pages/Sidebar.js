@@ -3,7 +3,7 @@ import { Nav } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-const Sidebar = ({ navElements }) => {
+const Sidebar = ({ navElements, defaultMenu }) => {
   const { detailId } = useParams();
 
   return (
@@ -18,7 +18,12 @@ const Sidebar = ({ navElements }) => {
               element.route.substring(
                 element.route.lastIndexOf("/") + 1,
                 element.route.length
-              ) === detailId
+              ) === detailId ||
+              (!detailId &&
+                element.route.substring(
+                  element.route.lastIndexOf("/") + 1,
+                  element.route.length
+                ) === defaultMenu)
                 ? "active-color-side-navbar"
                 : "text-muted"
             }

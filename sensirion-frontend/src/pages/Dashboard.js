@@ -19,7 +19,7 @@ const sidebarElements = [
 
 const Dashboard = () => {
   return (
-    <PageTemplate sidebarElements={sidebarElements}>
+    <PageTemplate navElements={sidebarElements} defaultMenu="today">
       <DashboardDetail />
     </PageTemplate>
   );

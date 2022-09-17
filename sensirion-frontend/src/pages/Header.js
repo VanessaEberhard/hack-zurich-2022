@@ -9,10 +9,10 @@ const Header = () => {
         <Container>
           <Navbar.Brand>Sensirion</Navbar.Brand>
           <Nav>
-            <Nav.Link as={NavLink} to="/dashboard" activeClassName="active-color-main-navbar">
+            <Nav.Link as={NavLink} to="/dashboard" activeclassname="active-color-main-navbar">
               Dashboard
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/profile" activeClassName="active-color-main-navbar">
+            <Nav.Link as={NavLink} to="/profile" activeclassname="active-color-main-navbar">
               Profile
             </Nav.Link>
           </Nav>

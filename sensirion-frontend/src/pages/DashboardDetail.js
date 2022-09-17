@@ -13,7 +13,7 @@ const data = {
 const DashboardDetail = () => {
   const { detailId } = useParams();
 
-  return <>{data[detailId] || data.today}</>;
+  return data[detailId] || data.today;
 };
 
 export default memo(DashboardDetail);
