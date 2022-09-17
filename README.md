@@ -13,7 +13,7 @@
 * We are proposing Random Forest algorithm. It is a supervised learning algorithm which is an ensemble of decision trees,and trained with the “bagging” method.
 * So we chose this algorithm because it's automatically eliminate the useless features so we do not have an overfitting.
 ### Evaluation:
-# After the training process, we tested the model to have an error -/+ 100 ppm. it means when we want to predict CO2 using other sensors reading, the error of the predicted CO2 will be between -/+ 100 ppm.
+* After the training process, we tested the model to have an error -/+ 100 ppm. it means when we want to predict CO2 using other sensors reading, the error of the predicted CO2 will be between -/+ 100 ppm.
 
 ## Members
 
