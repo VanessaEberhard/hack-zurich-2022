@@ -1,10 +1,12 @@
-import { memo, useCallback, useEffect, useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import axios from "axios";
+import { BASE_URL } from "const/env";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
 
 const formInputsFields = [
   {
-    label: "tvoc",
-    placeholder: "Enter tvoc",
+    label: "VOC",
+    placeholder: "Enter VOC",
     controlId: "tvoc",
   },
   {
@@ -41,12 +43,35 @@ const formInputsFields = [
 
 const Future = () => {
   const [formInput, setFormInput] = useState();
+  const [result, setResult] = useState();
 
-  const handleSubmit = useCallback((event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    console.log(formInput);
-  }, [formInput]);
+  const formRef = useRef();
+
+  const handleSubmit = useCallback(
+    (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      formRef.current.reset();
+      axios
+        .post(
+          `${BASE_URL}/future`,
+          {
+            formInput,
+          },
+          {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods":
+                "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            },
+          }
+        )
+        .then((response) => {
+          setResult(response.data.co2);
+        });
+    },
+    [formInput]
+  );
 
   useEffect(() => {
     const controlIds = formInputsFields.map((field) => field.controlId);
@@ -59,7 +84,7 @@ const Future = () => {
       <div className="h3 mb-3">
         Enter the informations and receive the predicted CO2
       </div>
-      <Form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} ref={(form) => (formRef.current = form)}>
         {formInputsFields.map((inputFields) => (
           <Form.Group
             className="mb-3"
@@ -71,14 +96,33 @@ const Future = () => {
               setFormInput(copyInput);
             }}
           >
-            <Form.Label className="mb-0">{inputFields.label}</Form.Label>
-            <Form.Control type="text" placeholder={inputFields.placeholder} />
+            <Form.Label className="mb-2">{inputFields.label}</Form.Label>
+            <Form.Control type="number" placeholder={inputFields.placeholder} required />
           </Form.Group>
         ))}
-        <Button variant="secondary" type="submit">
-          Submit
-        </Button>
-      </Form>
+        <Container>
+          <Row>
+            <Col className="p-0">
+              <Button variant="secondary" type="submit">
+                Submit
+              </Button>
+            </Col>
+            {result && (
+              <Col
+                className={
+                  400 < result && result < 1000
+                    ? "text-success"
+                    : result < 2000
+                    ? "text-warning"
+                    : "text-error"
+                }
+              >
+                <div className="h4">{result}</div>
+              </Col>
+            )}
+          </Row>
+        </Container>
+      </form>
     </div>
   );
 };

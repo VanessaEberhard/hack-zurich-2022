@@ -3,8 +3,6 @@ import { RadialBarChart, PolarAngleAxis, RadialBar } from "recharts";
 const CustomResponsiveRadialBar = ({ baseData, centerData }) => {
   return (
     <RadialBarChart width={250} height={250} data={baseData}
-    // cx={250/ 2}
-    // cy={250 / 2}
     innerRadius={50}
     outerRadius={100}
     barSize={15}
@@ -12,7 +10,7 @@ const CustomResponsiveRadialBar = ({ baseData, centerData }) => {
     endAngle={-180}>
       <PolarAngleAxis
         type="number"
-        domain={[0, 300]}
+        domain={[0, 3000]}
         angleAxisId={0}
         tick={false}
       />

@@ -1,8 +1,10 @@
 from flask import Flask, request
+from flask_cors import CORS
 import json
 import csv
 
 app = Flask(__name__)
+CORS(app)
 
 csv_path = '../sensor_data/data.csv'
 csv_data = []
@@ -10,6 +12,9 @@ csv_data = []
 
 NUM_PAST_ROWS = 16  # number of rows sent to react for past analysis
 
+@app.route('/future', methods=['POST'])
+def get_data_future():
+    return json.dumps({"co2": 452.8})
 
 @app.route('/present', methods=['GET'])
 def get_data_present():

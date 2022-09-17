@@ -2,7 +2,7 @@ import {
   ResponsiveContainer,
   LineChart,
   XAxis,
-//   YAxis,
+  YAxis,
   Tooltip,
   CartesianGrid,
   Line,
@@ -18,24 +18,14 @@ const CustomLineChart = ({ data, lines }) => {
         margin={{ top: 30, right: 20, left: 20, bottom: 5 }}
       >
         <XAxis
-          dataKey="name"
+          dataKey="timestamp"
           height={100}
           angle={-90}
           textAnchor="end"
           interval={0}
         />
 
-        {/* {(lines || []).map(
-          (line, index) =>
-            line.selected && (
-              <YAxis
-                dataKey={line.value}
-                width={5}
-                interval={0}
-                yAxisId={index}
-              />
-            )
-        )} */}
+        <YAxis type="number" domain={[0, "dataMax"]} orientation="right" />
         <Tooltip />
         <CartesianGrid stroke="#f5f5f5" />
         {(lines || []).map(
@@ -46,7 +36,7 @@ const CustomLineChart = ({ data, lines }) => {
                 dataKey={line.value}
                 stroke={line.color}
                 name={line.name}
-                yAxisId={index}
+                // yAxisId={index}
                 key={line.value}
               />
             )

@@ -7,10 +7,6 @@ const sidebarElements = [
     title: "Settings",
     route: "/profile/settings",
   },
-  {
-    title: "Sensors",
-    route: "/profile/sensors",
-  },
 ];
 
 const Profile = () => {
