@@ -1,0 +1,29 @@
+html,
+body,
+container {
+  height: 100%;
+}
+
+.full-height-sidebar {
+  height: calc(100vh - 56px) !important;
+}
+
+.sidebar {
+  background-color: #d9d9d9 !important;
+}
+
+.active-color-main-navbar {
+  color: white !important;
+}
+
+.active-color-side-navbar {
+  color: black !important;
+}
+
+.img-building {
+  height: 200px;
+}
+
+.img-dashboard {
+  height: 80vh !important;
+}

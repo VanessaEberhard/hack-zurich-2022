@@ -7,7 +7,7 @@
 ### Problem definition:
 * Our target is to predict the CO2 using the other sensors reading so we will have a vision in any room for the future events 
 
-### Preprossing:
+### Preprocessing:
 * First, we started to drop the null values from the sensor and did some cleaning processing approaches then we restructured the dataset by combined all to have in the end room A and room B to be independent.
 ### Modeling:
 * We are proposing Random Forest algorithm. It is a supervised learning algorithm which is an ensemble of decision trees,and trained with the “bagging” method.
